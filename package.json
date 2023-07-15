@@ -1,6 +1,7 @@
 {
   "name": "cinemaapp",
   "private": true,
+  "homepage": "https://flickspot-web.netlify.app/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

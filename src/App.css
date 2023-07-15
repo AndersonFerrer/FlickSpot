@@ -7,3 +7,7 @@ html {
     box-sizing: border-box;
     background-color: #0f0f0f;
 }
+
+.text-wrap {
+    text-wrap: balance;
+}
