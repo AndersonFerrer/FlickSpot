@@ -21,7 +21,7 @@ function fetchSearch (query, SETSTATE, STATE, SETSTATELOADER) {
       }
     }
     fetchData()
-  }, [STATE])
+  }, [query])
   return (
     null
   )

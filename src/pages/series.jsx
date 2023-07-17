@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Series () {
   return (
-    <div className='mx-auto w-full max-w-[1496px] py-[32px]'>Series
+    <section className='mx-auto w-full max-w-[1496px] py-[32px]'>Series
       <div className='grid auto-rows-[192px] grid-cols-3 gap-4'>
         {[...Array(7)].map((_, i) => (
           <div
@@ -13,6 +13,6 @@ export default function Series () {
           />
         ))}
       </div>
-    </div>
+    </section>
   )
 }

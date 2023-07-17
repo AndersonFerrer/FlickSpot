@@ -9,12 +9,13 @@ import Movies from './pages/movies'
 import Detail from './screens/detail'
 import Search from './screens/search'
 import { useState } from 'react'
+import Footer from './components/footer'
 
 function App () {
   const [searchInp, setSearchInp] = useState()
   return (
     <>
-      <div className='w-full min-h-full bg-[#0f0f0f] mt-[80px] px-[24px] text-white'>
+      <div className='w-full min-h-full bg-[#0f0f0f] mt-[100px] lg:mt-20 px-[24px] text-white'>
 
         <Route path='/'>
           <NavBar searchInp={searchInp} setSearchInp={setSearchInp} />
@@ -31,11 +32,14 @@ function App () {
         <Route exact path='/anime'>
           <Anime />
         </Route>
-        <Route path='/detalle/:id'>
+        <Route path='/pelicula/:id'>
           <Detail />
         </Route>
         <Route path='/search/:query'>
           <Search setSearchInp={setSearchInp} searchInp={searchInp} />
+        </Route>
+        <Route path='/'>
+          <Footer />
         </Route>
 
       </div>

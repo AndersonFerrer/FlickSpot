@@ -30,7 +30,7 @@ export default function PortadaHome ({ data }) {
   }
   return (
 
-    <Link to={{ pathname: `/detalle/${data.id}` }}>
+    <Link to={{ pathname: `/pelicula/${data.id}` }}>
       <div className='overflow-hidden w-full flex relative h-[450px] rounded-2xl '>
         <div className='absolute left-0 z-10 flex flex-col items-start justify-center w-4/5 h-full p-16 bg-gradient-to-r from-black via-black to-transparent'>
           <h1 className='text-[48px] font-bold mb-4'>{data.title}</h1>

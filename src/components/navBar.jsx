@@ -1,6 +1,6 @@
 import { BiSearchAlt } from 'react-icons/bi'
 import { VscBellDot, VscTriangleDown } from 'react-icons/vsc'
-import { NavLink, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { NavLink, useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function NavBar ({ searchInp, setSearchInp }) {
   const history = useHistory()
@@ -20,11 +20,13 @@ export default function NavBar ({ searchInp, setSearchInp }) {
     }
   }
   return (
-    <div className='w-full text-white bg-[#0f0f0f] shadow-lg shadow-[#0f0f0f] fixed z-50 flex  justify-center items-center h-[80px] top-0 left-0'>
-      <div className='w-full max-w-[1496px] flex justify-between items-center'>
+    <header className='w-full px-6 h-[100px] lg:h-[80px] text-white py-2 bg-[#0f0f0f] shadow-lg shadow-[#0f0f0f] fixed z-50 flex  justify-center items-center  lg:top-0 left-0 top-0'>
+      <div className='w-full max-w-[1496px]  gap-y-2 flex flex-col lg:flex-row   justify-between items-center'>
         <div className='flex items-center justify-center gap-16'>
-          <h1 className='text-3xl font-bold'>FlickSpot</h1>
-          <div className='text-[#656167] flex items-center justify-center gap-4'>
+          <Link to='/'>
+            <h1 className='text-3xl font-bold'>FlickSpot</h1>
+          </Link>
+          <nav className='text-[#656167] hidden sm:flex items-center justify-center gap-4'>
             <NavLink
               activeClassName='text-white font-bold' exact to='/'
             >
@@ -42,7 +44,7 @@ export default function NavBar ({ searchInp, setSearchInp }) {
             <NavLink activeClassName='text-white font-bold transition-all duration-300' exact to='/anime'>
               <h1>Anime</h1>
             </NavLink>
-          </div>
+          </nav>
         </div>
 
         <div className='flex items-center justify-center gap-8'>
@@ -64,6 +66,6 @@ export default function NavBar ({ searchInp, setSearchInp }) {
         </div>
       </div>
 
-    </div>
+    </header>
   )
 }

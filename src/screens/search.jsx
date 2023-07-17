@@ -20,18 +20,18 @@ export default function Search ({ searchInp }) {
   } else {
     return (
 
-      <div className='mx-auto w-full max-w-[1496px] py-[32px]'>
-        <h1 className='text-2xl'>{`Se muestran resultados de busqueda para '${searchInp || query}'`}</h1>
+      <section className='mx-auto w-full max-w-[1496px] py-[32px]'>
+        <h1 className='text-2xl'>{`Se muestran resultados de busqueda para '${query}'`}</h1>
         <div className='relative z-0 flex flex-wrap items-center justify-center w-full min-h-full gap-4 py-8 text-white'>
 
           {searchMovies?.map((movies) => (
-            <Link key={movies.id} to={{ pathname: `/detalle/${movies.id}` }}>
+            <Link key={movies.id} to={{ pathname: `/pelicula/${movies.id}` }}>
               <Poster img={movies.poster_path} title={movies.title} popularity={movies.vote_average} />
             </Link>
 
           ))}
         </div>
-      </div>
+      </section>
 
     )
   }

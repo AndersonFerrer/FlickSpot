@@ -16,7 +16,7 @@ export default function Credits ({ id }) {
   console.log(writers)
   console.log(actors)
   return (
-    <div className='w-[300px] h-[600px] overflow-hidden  flex flex-col gap-4 bg-contain pl-4 py-6 items-end'>
+    <div className='w-[300px] h-[600px] overflow-hidden  flex flex-col gap-4 bg-contain items-start xl:items-end'>
       <h1 className='font-bold'>Actores</h1>
       {actors?.map((actors, i) => (
         <ProfileCredit profilePath={actors.profile_path} originalName={actors.original_name} job={actors.character} key={i} />
