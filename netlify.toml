@@ -2,3 +2,7 @@
 from = "/*"
 status = 200
 to = "/index.html"
+
+[build]
+command = "npm run build"
+publish = "dist"
