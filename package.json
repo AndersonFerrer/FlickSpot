@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "postbuild": "xcopy netlify.toml dist\\ && echo netlify.toml copied to dist\\",
+    "copy:config": "xcopy netlify.toml dist\\ && echo netlify.toml copied to dist\\",
     "preview": "vite preview"
   },
   "dependencies": {
