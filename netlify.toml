@@ -5,6 +5,4 @@ to = "/index.html"
 
 [build]
 command = "npm run build"
-commandOrigin = "config"
-publish = "/opt/build/repo/dist"
-publishOrigin = "config"
+publish = "dist"
