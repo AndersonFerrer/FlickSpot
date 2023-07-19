@@ -1,4 +1,3 @@
-import { BiSearchAlt } from 'react-icons/bi'
 import { VscBellDot, VscTriangleDown } from 'react-icons/vsc'
 import { NavLink, useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min'
 
@@ -48,13 +47,18 @@ export default function NavBar ({ searchInp, setSearchInp }) {
         </div>
 
         <div className='flex items-center justify-center gap-8'>
-          <div className=' group px-2 pl-4 rounded-3xl box-border flex bg-[#232026] justify-center items-center'>
-            <BiSearchAlt className='' />
-            <form onSubmit={handleSubmit}>
-              <input value={searchInp} onChange={HandleChangeInput} className='p-2 bg-transparent outline-none group-valid:bg-white' type='text' placeholder='Buscar...' onKeyDown={handleKeyDown} />
-            </form>
 
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div className='relative'>
+              <input value={searchInp} onKeyDown={handleKeyDown} onChange={HandleChangeInput} type='text' className='block w-full h-10 pl-4 pr-16 py-3 rounded-3xl bg-[#232026] outline-none shadow-lg shadow-black' placeholder='Buscar...' required />
+              <button type='submit' className='absolute grid h-8 px-4 text-sm font-medium text-white transition-colors bg-red-400 right-2 bottom-1 hover:bg-red-500 focus:outline-none rounded-3xl place-content-center'>
+                <svg className='w-4 h-4 text-white' aria-hidden='true' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'>
+                  <path stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z' />
+                </svg>
+              </button>
+            </div>
+          </form>
+
           <div className='flex items-center justify-center gap-4'>
             <VscBellDot fontSize={28} />
             <button onClick={() => console.log('abrir-menu')} className='flex items-center justify-center gap-1 font-bold'>

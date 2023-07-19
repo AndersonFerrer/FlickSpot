@@ -56,7 +56,7 @@ export default function PortadaHome ({ data }) {
 
           </div>
           <div>
-            <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 mt-8 font-light bg-red-400 rounded-3xl'>
+            <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 mt-8 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
               Ver Trailer <FaPlay className='inline' />
             </button>
           </div>

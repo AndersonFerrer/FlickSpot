@@ -15,7 +15,7 @@ function App () {
   const [searchInp, setSearchInp] = useState()
   return (
     <>
-      <div className='w-full min-h-full bg-[#0f0f0f] mt-[100px] lg:mt-20 px-[24px] text-white'>
+      <div className='w-full pb-[240px] min-h-[calc(100vh-100px)] relative lg:min-h-[calc(100vh-80px)] bg-[#0f0f0f] mt-[100px] lg:mt-20 px-[24px] text-white'>
 
         <Route path='/'>
           <NavBar searchInp={searchInp} setSearchInp={setSearchInp} />
