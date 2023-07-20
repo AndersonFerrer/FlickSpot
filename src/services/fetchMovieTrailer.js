@@ -11,7 +11,7 @@ function fetchMovieTrailer (id, setSTATE) {
     }
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=es-ES`, options)
+        const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?language=es-MX`, options)
         const jsonData = await response.json()
         const trailers = jsonData.results.filter((video) => video.type === 'Trailer')
         setSTATE(trailers[0].key)

@@ -14,5 +14,9 @@ module.exports = withMT({
   },
   plugins: [
 
-  ]
+  ],
+  corePlugins: {
+    // Habilita la funcionalidad de utilizar URL de imagen en las clases bg-[...]
+    backgroundImage: true
+  }
 })

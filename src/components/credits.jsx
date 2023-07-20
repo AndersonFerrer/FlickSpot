@@ -5,7 +5,7 @@ import ProfileCredit from './profile_credit'
 
 export default function Credits ({ id }) {
   const [cast, setCast] = useState()
-  useFetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=es-ES`, setCast)
+  useFetch(`https://api.themoviedb.org/3/movie/${id}/credits?language=es-MX`, setCast)
   console.log(cast)
   const directors = cast?.crew.map((crew) => crew).filter((crew) => crew.job === 'Director')
   const producers = cast?.crew.map((crew) => crew).filter((crew) => crew.job === 'Producer')

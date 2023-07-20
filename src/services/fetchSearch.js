@@ -11,7 +11,7 @@ function fetchSearch (query, SETSTATE, STATE, SETSTATELOADER) {
     }
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${STATE || query}&include_adult=false&language=es-ES&page=1`, options)
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${STATE || query}&include_adult=false&language=es-MX&page=1`, options)
         const jsonData = await response.json()
         const searchMovies = jsonData.results
         SETSTATE(searchMovies)

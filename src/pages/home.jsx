@@ -10,7 +10,7 @@ export default function Home () {
   const [loaderHome, setLoaderHome] = useState(true)
   console.log(data)
 
-  useFetch('https://api.themoviedb.org/3/movie/now_playing?language=es-ES&page=1', setData, setLoaderHome)
+  useFetch('https://api.themoviedb.org/3/movie/now_playing?language=es-MX&page=1', setData, setLoaderHome)
   if (loaderHome) {
     return (
       <div className='mx-auto h-[calc(100vh-112px)] w-full max-w-[1496px] pb-[32px] flex place-content-center'>
@@ -23,7 +23,7 @@ export default function Home () {
 
       <section className='mx-auto w-full max-w-[1496px] py-[32px]'>
         {
-        data && <PortadaHome data={data?.results[0]} />
+        data && <PortadaHome data={data?.results[6]} />
       }
         <div className='relative z-0 flex flex-wrap items-center justify-center w-full min-h-screen gap-4 py-8 text-white'>
 

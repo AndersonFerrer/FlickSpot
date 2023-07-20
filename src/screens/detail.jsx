@@ -13,7 +13,7 @@ function Detail () {
   const [movieDetail, setMovieDetail] = useState()
   const [video, setVideo] = useState(null)
   const [loaderHome, setLoaderHome] = useState(true)
-  useFetch(`https://api.themoviedb.org/3/movie/${id}?language=es-ES`, setMovieDetail, setLoaderHome)
+  useFetch(`https://api.themoviedb.org/3/movie/${id}?language=es-MX`, setMovieDetail, setLoaderHome)
   fetchMovieTrailer(id, setVideo)
   console.log(movieDetail)
   console.log(video)
