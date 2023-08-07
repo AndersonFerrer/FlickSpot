@@ -10,13 +10,14 @@ import Detail from './screens/detail'
 import Search from './screens/search'
 import { useState } from 'react'
 import Footer from './components/footer'
+import ScrollTop from './components/scrollTop'
 
 function App () {
   const [searchInp, setSearchInp] = useState()
   return (
     <>
       <div className='w-full pb-[240px] min-h-[calc(100vh-100px)] relative lg:min-h-[calc(100vh-80px)] bg-[#0f0f0f] mt-[100px] lg:mt-20 px-[24px] text-white'>
-
+        <ScrollTop />
         <Route path='/'>
           <NavBar searchInp={searchInp} setSearchInp={setSearchInp} />
         </Route>

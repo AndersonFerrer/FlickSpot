@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import React, { useState } from 'react'
 import useFetch from '../services/useFetch'
 import { FaTicketAlt, FaPlay } from 'react-icons/fa'
@@ -57,9 +58,10 @@ export default function PortadaHome ({ data }) {
 
           </div>
           <div>
-            <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 mt-8 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
+            {video && <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 mt-8 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
               Ver Trailer <FaPlay className='inline' />
-            </button>
+                      </button>}
+
           </div>
 
         </div>
@@ -67,10 +69,13 @@ export default function PortadaHome ({ data }) {
         <img className='absolute right-0 z-0 flex w-full h-full sm:hidden' src={`https://image.tmdb.org/t/p/original${data.poster_path}`} alt='portada' />
         <img className='absolute right-0 z-0 hidden w-full h-full sm:flex' src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`} alt='portada' />
         <div className='absolute bottom-0 z-20 flex flex-wrap items-center justify-center w-full gap-2 p-4 sm:hidden bg-white/20 backdrop-blur-sm'>
-          <h1 className='w-1/3 font-semibold text-wrap text-md'>{data?.title}</h1>
-          <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
-            Ver Trailer <FaPlay className='inline' />
-          </button>
+          <h1 className='w-1/3 font-semibold text-center text-wrap text-md'>{data?.title}</h1>
+          {
+            video && <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
+              Ver Trailer <FaPlay className='inline' />
+                     </button>
+          }
+
         </div>
 
       </div>
