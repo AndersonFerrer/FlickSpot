@@ -16,7 +16,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^5.2.0",
-    "react-world-flags": "^1.5.1"
+    "react-world-flags": "^1.5.1",
+    "swiper": "^10.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",
