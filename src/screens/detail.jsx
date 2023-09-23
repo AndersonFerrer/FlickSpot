@@ -7,6 +7,7 @@ import fetchMovieTrailer from '../services/fetchMovieTrailer'
 import Credits from '../components/credits'
 import '../App.css'
 import InfoMovie from '../components/info_movie'
+import ScrollTop from '../components/scrollTop'
 
 function Detail () {
   const { id } = useParams()
@@ -34,9 +35,8 @@ function Detail () {
 
   return (
     <section className='mx-auto w-full shrink-0 flex flex-wrap gap-4  justify-between  max-w-[1496px] py-[32px]'>
-
-      <figure className='flex rounded-3xl overflow-hidden w-[300px] lg:w-[400px]  flex-col shrink-0'>
-        <img src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`} alt='poster' className='aspect-[2/3]  ' />
+      <figure className='flex  overflow-hidden w-[300px] lg:w-[400px]  flex-col shrink-0'>
+        <img src={`https://image.tmdb.org/t/p/original${movieDetail.poster_path}`} alt='poster' className='aspect-[2/3]  rounded-3xl' />
         {(movieDetail.homepage !== '') && <button onClick={handleButtonClickWebSite} className='flex items-center justify-center gap-2 px-6 py-4 my-8 text-xl font-semibold text-red-400 shadow-lg shadow-black bg-[#1d1b20] rounded-3xl'><CgWebsite className='inline ' />Sitio Web</button>}
       </figure>
 

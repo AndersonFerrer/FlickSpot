@@ -1,7 +1,7 @@
 /* eslint-disable space-before-function-paren */
 import { useEffect } from 'react'
 
-function fetchSearch(query, SETSTATE, STATE, SETSTATELOADER) {
+function fetchSerieTrailer(id, setSTATE) {
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -12,21 +12,19 @@ function fetchSearch(query, SETSTATE, STATE, SETSTATELOADER) {
     }
     const fetchData = async () => {
       try {
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?query=${STATE || query}&include_adult=false&language=es-MX&page=1`, options)
+        const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?language=es-MX`, options)
         const jsonData = await response.json()
-        const searchMovies = jsonData.results
-        SETSTATE(searchMovies)
+        const trailers = jsonData.results.filter((video) => video.type === 'Trailer')
+        setSTATE(trailers[0].key)
       } catch (error) {
         console.log(error)
-      } finally {
-        SETSTATELOADER(false)
       }
     }
     fetchData()
-  }, [query])
+  }, [])
   return (
     null
   )
 }
 
-export default fetchSearch
+export default fetchSerieTrailer

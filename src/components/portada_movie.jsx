@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable react/jsx-indent */
 import React, { useState } from 'react'
 import useFetch from '../services/useFetch'
@@ -7,7 +8,7 @@ import fetchMovieTrailer from '../services/fetchMovieTrailer'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
 import '../App.css'
 
-export default function PortadaHome ({ data }) {
+export default function PortadaMovie ({ data }) {
   const [generes, setGeneres] = useState(null)
   const [video, setVideo] = useState(null)
   const [runtime, setRuntime] = useState()
@@ -28,10 +29,12 @@ export default function PortadaHome ({ data }) {
     .catch(error => {
       console.error(error)
     })
+
   const arrayGeneros = generes?.genres
   console.log(data)
   fetchMovieTrailer(data.id, setVideo)
   console.log(video)
+  console.log()
   const handleButtonClick = (event) => {
     event.preventDefault()
     // Realiza la redirección a YouTube o cualquier enlace externo aquí
@@ -42,9 +45,9 @@ export default function PortadaHome ({ data }) {
   const URLTrailer = `https://www.youtube.com/watch?v=${video}`
   return (
 
-    <Link to={{ pathname: `/pelicula/${data.id}` }}>
+    <Link className='bg-transparent' to={{ pathname: `/pelicula/${data.id}` }}>
       <div className='overflow-hidden w-full flex relative h-[560px] rounded-2xl  shadow-xl shadow-black'>
-        <div className='absolute left-0 z-10 items-start justify-center hidden w-3/5 h-full p-16 pr-24 bg-gradient-to-r from-black/60 via-black/50 to-transparent sm:flex-col sm:flex '>
+        <div className='absolute left-0 z-10 items-start justify-center hidden w-3/5 h-full p-16 pr-24 md:w-4/5 bg-gradient-to-r from-black/60 via-black/50 to-transparent md:flex-col md:flex '>
           <h1 className='text-[36px] lg:text-[48px]  font-bold mb-4'>{data.title}</h1>
           <div>
             <div className='flex items-center justify-start gap-2 text-lg font-bold'>
@@ -54,7 +57,7 @@ export default function PortadaHome ({ data }) {
               <div className='flex gap-2 text-white' />
             </div>
           </div>
-          <h1 className='my-3 text-lg font-bold'>{combinedGenres}</h1>
+          <h1 className='my-3 text-lg font-bold '>{combinedGenres}</h1>
           <p>{data?.overview}</p>
           <div>
             {video && <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 mt-8 font-light transition-all duration-500 bg-red-400 shadow-lg hover:shadow-black/60 shadow-black hover:bg-red-500 rounded-3xl'>
@@ -62,16 +65,16 @@ export default function PortadaHome ({ data }) {
                       </button>}
           </div>
         </div>
-        <img className='absolute right-0 z-0 flex w-full h-full bg-center sm:hidden' src={`https://image.tmdb.org/t/p/original${data.poster_path}`} alt='portada' />
-        <img className='absolute right-0 z-0 hidden object-cover w-full h-full sm:flex' src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`} alt='portada' />
-        <div className='absolute bottom-0 z-20 flex flex-wrap items-center justify-center w-full gap-2 p-4 sm:hidden bg-white/20 backdrop-blur-sm'>
+        <img className='absolute right-0 z-0 flex w-full h-full bg-center md:hidden' src={`https://image.tmdb.org/t/p/original${data.poster_path}`} alt='portada' />
+        <img className='absolute right-0 z-0 hidden object-cover w-full h-full md:flex' src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`} alt='portada' />
+         {/* <div className='absolute bottom-0 z-20 flex flex-wrap items-center justify-center w-full gap-2 p-4 md:hidden bg-black/20 backdrop-blur-sm'>
           <h1 className='w-1/3 font-semibold text-center text-wrap text-md'>{data?.title}</h1>
           {
             video && <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
               Ver Trailer <FaPlay className='inline' />
                      </button>
           }
-        </div>
+         </div> */}
       </div>
     </Link>
 

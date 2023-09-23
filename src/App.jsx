@@ -3,23 +3,40 @@ import Home from './pages/home'
 import NavBar from './components/navBar'
 import './index.css'
 import { Route } from 'react-router-dom'
-import Anime from './pages/anime'
+import { useState } from 'react'
 import Series from './pages/series'
 import Movies from './pages/movies'
+import Anime from './pages/anime'
 import Detail from './screens/detail'
 import Search from './screens/search'
-import { useState } from 'react'
 import Footer from './components/footer'
-import ScrollTop from './components/scrollTop'
 
 function App () {
   const [searchInp, setSearchInp] = useState()
+
+  /* -----------------------MODO OSCURO--------------- */
+  /*  const [darkMode, setDarkMode] = useState(() => {
+    if (window.matchMedia('(prefers-colors-scheme: dark)').matches) {
+      return 'dark'
+    }
+    return 'light'
+  })
+  console.log(darkMode)
+  useEffect(() => {
+    if (darkMode === 'dark') {
+      document.querySelector('html').classList.add('dark')
+    } else {
+      document.querySelector('html').classList.remove('dark')
+    }
+  }, [darkMode]) */
+  /* -----------------------MODO OSCURO------------- */
+
   return (
     <>
       <div className='w-full pb-[240px] min-h-[calc(100vh-100px)] relative lg:min-h-[calc(100vh-80px)]  mt-[100px] lg:mt-20 px-[24px] text-white'>
-        <ScrollTop />
+
         <Route path='/'>
-          <NavBar searchInp={searchInp} setSearchInp={setSearchInp} />
+          <NavBar searchInp={searchInp} setSearchInp={setSearchInp} /> {/* IMPLEMENTAR ESTADOS DEL MODO OSCURO */}
         </Route>
         <Route exact path='/'>
           <Home />
@@ -42,7 +59,6 @@ function App () {
         <Route path='/'>
           <Footer />
         </Route>
-
       </div>
     </>
   )

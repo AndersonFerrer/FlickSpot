@@ -1,6 +1,7 @@
+/* eslint-disable space-before-function-paren */
 import { useEffect } from 'react'
 
-function useFetch (URL, STATE, STATELOADER = null) {
+function useFetch(URL, STATE, STATELOADER = null) {
   useEffect(() => {
     const options = {
       method: 'GET',
@@ -14,13 +15,14 @@ function useFetch (URL, STATE, STATELOADER = null) {
         const response = await fetch(URL, options)
         const jsonData = await response.json()
         STATE(jsonData)
+      } catch (error) {
+        console.log(error)
+      } finally {
         if (STATELOADER !== null) {
           setTimeout(() => {
             STATELOADER(false)
           }, 300)
         }
-      } catch (error) {
-        console.log(error)
       }
     }
     fetchData()

@@ -1,6 +1,9 @@
 import React from 'react'
 
 export default function Anime () {
+  if (window.reload) {
+    console.log('se reinicio')
+  }
   return (
     <div className='mx-auto w-full max-w-[1496px] py-[32px]'>
       <div className='grid auto-rows-[192px] grid-cols-3 gap-4'>

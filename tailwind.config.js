@@ -15,6 +15,7 @@ module.exports = withMT({
   plugins: [
 
   ],
+  darkMode: 'class',
   corePlugins: {
     // Habilita la funcionalidad de utilizar URL de imagen en las clases bg-[...]
     backgroundImage: true
