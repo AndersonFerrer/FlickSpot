@@ -21,7 +21,7 @@ function useFetch(URL, STATE, STATELOADER = null) {
         if (STATELOADER !== null) {
           setTimeout(() => {
             STATELOADER(false)
-          }, 300)
+          }, 800)
         }
       }
     }

@@ -1,16 +1,15 @@
 import { VscBellDot, VscTriangleDown } from 'react-icons/vsc'
-import { NavLink, useHistory, Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { NavLink, useHistory, Link, useLocation } from 'react-router-dom'
 
 export default function NavBar ({ searchInp, setSearchInp }) {
+  const { pathname } = useLocation()
   const history = useHistory()
-  console.log(searchInp)
   const HandleChangeInput = (event) => {
     event.preventDefault()
     setSearchInp(event.target.value)
   }
   const handleSubmit = (event) => {
     event.preventDefault()
-    // Aquí puedes hacer algo con el valor del input
     history.push(`/search/${searchInp}`)
   }
   const handleKeyDown = (event) => {
@@ -33,14 +32,14 @@ export default function NavBar ({ searchInp, setSearchInp }) {
             </NavLink>
             <NavLink
               activeClassName='text-white  font-bold transition-all duration-300'
-              to='/peliculas'
+              to='/peliculas' className={(pathname.includes('/pelicula')) ? 'text-white  font-bold transition-all duration-300' : ''}
             >
               <h1>Peliculas</h1>
             </NavLink>
-            <NavLink activeClassName='text-white  font-bold transition-all duration-300' exact to='/series'>
+            <NavLink activeClassName='text-white  font-bold transition-all duration-300' exact to='/series' className={(pathname.includes('/serie')) ? 'text-white  font-bold transition-all duration-300' : ''}>
               <h1>Series</h1>
             </NavLink>
-            <NavLink activeClassName='text-white font-bold transition-all duration-300' exact to='/anime'>
+            <NavLink className={(pathname.includes('/anime')) ? 'text-white  font-bold transition-all duration-300' : ''} activeClassName='text-white font-bold transition-all duration-300' exact to='/anime'>
               <h1>Anime</h1>
             </NavLink>
           </nav>

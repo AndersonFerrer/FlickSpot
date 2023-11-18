@@ -46,23 +46,16 @@ export default function Home () {
 
       <section className='mx-auto w-full max-w-[1496px] py-[32px]'>
         <Swiper
-          effect='coverflow'
           grabCursor
           centeredSlides
           slidesPerView='auto'
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true
-          }}
-          pagination
+          spaceBetween={32}
+          navigation
           speed={1200}
           onAutoplayTimeLeft={onAutoplayTimeLeft}
           modules={[EffectCoverflow, Navigation, Autoplay]}
           autoplay={{ delay: 8000, pauseOnMouseEnter: true, disableOnInteraction: false }}
-          className='bg-transparent mySwiper rounded-2xl'
+          className='mySwiper rounded-2xl'
         >
           <SwiperSlide><PortadaMovie data={movies?.results[0]} /></SwiperSlide>
           <SwiperSlide><PortadaMovie data={movies?.results[1]} /></SwiperSlide>

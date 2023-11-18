@@ -8,12 +8,13 @@ export default function InfoMovie ({ URLTrailer, movieDetail, video }) {
     // Realiza la redirección a YouTube o cualquier enlace externo aquí
     window.open(URLTrailer, '_blank')
   }
+  console.log(movieDetail)
   return (
     <div className='w-[480px] xl:w-[700px]'>
       <h1 className='text-[36px] text-wrap font-bold'>{movieDetail.title}</h1>
       {(video) &&
         <button onClick={handleButtonClickTrailer} className='flex items-center justify-center gap-2 px-6 py-4 my-8 font-light bg-red-400 hover:shadow-lg hover:shadow-white/10 rounded-3xl'>
-          Ver Trailer <FaPlay className='inline' />
+          Ver Tráiler <FaPlay className='inline' />
         </button>}
       {(movieDetail.overview !== '') &&
         <h1 className='mb-6 font-semibold'>SINOPSIS</h1>}
@@ -21,6 +22,10 @@ export default function InfoMovie ({ URLTrailer, movieDetail, video }) {
         <p className='w-[4/5]  whitespace-normal text-gray-600'>{movieDetail.overview}</p>}
       <table className='mt-6'>
         <tbody>
+          <tr>
+            <td className='pb-2 pr-6 text-gray-700'>Estado</td>
+            <td className='pb-2 pr-6'>{(movieDetail.status === 'Released') ? 'Lanzada' : 'Rumoreada'}</td>
+          </tr>
           <tr>
             <td className='pb-2 pr-6 text-gray-700'>Calificación</td>
             <td className='pb-2 pr-6'>{movieDetail.vote_average.toFixed(1)}</td>

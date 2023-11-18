@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 /* eslint-disable react/jsx-indent */
 import React, { useState } from 'react'
 import useFetch from '../services/useFetch'
@@ -6,20 +5,16 @@ import { FaPlay } from 'react-icons/fa'
 import { AiFillStar } from 'react-icons/ai'
 import fetchMovieTrailer from '../services/fetchMovieTrailer'
 import { Link } from 'react-router-dom/cjs/react-router-dom'
+import { options } from '../services/options'
 import '../App.css'
 
 export default function PortadaMovie ({ data }) {
   const [generes, setGeneres] = useState(null)
   const [video, setVideo] = useState(null)
   const [runtime, setRuntime] = useState()
-  const options = {
-    method: 'GET',
-    headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzE1MThmNzdlN2EyNTI0Y2UzOWRlNWEzNmNjNWRlNCIsInN1YiI6IjY0OGZiZDFlMGYwZGE1MDBjNWY1YTFlZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.mNAoLe3pjJajQ-q3VZGKy8Jy9Md1OwfavsjJUtPO_ZA'
-    }
-  }
+
   useFetch('https://api.themoviedb.org/3/genre/movie/list?language=es-MX', setGeneres)
+
   fetch(`https://api.themoviedb.org/3/movie/${data?.id}?language=es-MX`, options)
     .then(res => res.json())
     .then(date => {
@@ -31,18 +26,17 @@ export default function PortadaMovie ({ data }) {
     })
 
   const arrayGeneros = generes?.genres
-  console.log(data)
   fetchMovieTrailer(data.id, setVideo)
-  console.log(video)
-  console.log()
+
   const handleButtonClick = (event) => {
     event.preventDefault()
-    // Realiza la redirección a YouTube o cualquier enlace externo aquí
     window.open(URLTrailer, '_blank')
   }
+
   const genreNames = data?.genre_ids.map(ids => arrayGeneros?.find(objeto => objeto.id === ids).name)
   const combinedGenres = genreNames.join(' | ')
   const URLTrailer = `https://www.youtube.com/watch?v=${video}`
+
   return (
 
     <Link className='bg-transparent' to={{ pathname: `/pelicula/${data.id}` }}>
@@ -58,7 +52,7 @@ export default function PortadaMovie ({ data }) {
             </div>
           </div>
           <h1 className='my-3 text-lg font-bold '>{combinedGenres}</h1>
-          <p>{data?.overview}</p>
+          <p className='w-[75ch]'>{data?.overview}</p>
           <div>
             {video && <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 mt-8 font-light transition-all duration-500 bg-red-400 shadow-lg hover:shadow-black/60 shadow-black hover:bg-red-500 rounded-3xl'>
               Ver Trailer <FaPlay className='inline' />
@@ -67,14 +61,6 @@ export default function PortadaMovie ({ data }) {
         </div>
         <img className='absolute right-0 z-0 flex w-full h-full bg-center md:hidden' src={`https://image.tmdb.org/t/p/original${data.poster_path}`} alt='portada' />
         <img className='absolute right-0 z-0 hidden object-cover w-full h-full md:flex' src={`https://image.tmdb.org/t/p/original${data.backdrop_path}`} alt='portada' />
-         {/* <div className='absolute bottom-0 z-20 flex flex-wrap items-center justify-center w-full gap-2 p-4 md:hidden bg-black/20 backdrop-blur-sm'>
-          <h1 className='w-1/3 font-semibold text-center text-wrap text-md'>{data?.title}</h1>
-          {
-            video && <button onClick={handleButtonClick} className='flex items-center justify-center gap-2 px-6 py-4 font-light transition-colors bg-red-400 hover:bg-red-500 rounded-3xl'>
-              Ver Trailer <FaPlay className='inline' />
-                     </button>
-          }
-         </div> */}
       </div>
     </Link>
 
